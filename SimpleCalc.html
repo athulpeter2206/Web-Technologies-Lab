@@ -7,25 +7,51 @@
 
             <button onclick="test(1)">1</button>
             <button onclick="test(2)">2</button>
-            <button onclick="test(3)">3</button><br>
+            <button onclick="test(3)">3</button>
+            <button onclick="">+</button><br>
 
             <button onclick="test(4)">4</button>
             <button onclick="test(5)">5</button>
-            <button onclick="test(6)">6</button> <br>
+            <button onclick="test(6)">6</button>
+            <button onclick="">-</button><br>
+
             <button onclick="test(7)">7</button>
             <button onclick="test(8)">8</button>
             <button onclick="test(9)">9</button>
-            <button onclick="test(0)">0</button>            
+            <button onclick="">*</button><br>
+
+            <button onclick="">AC</button>
+            <button onclick="test(0)">0</button>  
+            <button onclick="">=</button>          
 
         </form>
     </div>
 </body>
 <script>
     function test(n){
-        document.getElementById("textBoxId").value=n;
-        event.preventDefault(); 
+        if(document.getElementById("textBoxId").value!=null){
+            var Num=document.getElementById("textBoxId").value;
+            var Num=Num*10+n;
+            document.getElementById("textBoxId").value=Num;
+            event.preventDefault(); 
+        }else if(document.getElementById("textBoxId").value==0 && document.getElementById("textBoxId").value!='.'){
+            document.getElementById("textBoxId").value=n;
+            event.preventDefault(); 
+        }else{
+            document.getElementById("textBoxId").value=n;
+            event.preventDefault();  
+        }
+
     }
 </script>
-    
+<style>
+    .calcMainDiv{
+        background-color: antiquewhite;
+        width: 8cm;
+        height: 8cm;
+        padding: 1cm;
+        margin: 6cm;
+    }
+</style>
 
 </html>
