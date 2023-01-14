@@ -8,7 +8,7 @@
             <button onclick="test(1)">1</button>
             <button onclick="test(2)">2</button>
             <button onclick="test(3)">3</button>
-            <button onclick="">+</button><br>
+            <button onclick="additionCalc()">+</button><br>
 
             <button onclick="test(4)">4</button>
             <button onclick="test(5)">5</button>
@@ -22,17 +22,21 @@
 
             <button onclick="">AC</button>
             <button onclick="test(0)">0</button>  
-            <button onclick="">=</button>          
+            <button onclick="equals()">=</button>          
 
         </form>
     </div>
 </body>
 <script>
+var Num1;
+var Num2;
+var Opr=0;
+var result;  
     function test(n){
         if(document.getElementById("textBoxId").value!=null){
-            var Num=document.getElementById("textBoxId").value;
-            var Num=Num*10+n;
-            document.getElementById("textBoxId").value=Num;
+            Num1=document.getElementById("textBoxId").value;
+            Num1=Num1*10+n;
+            document.getElementById("textBoxId").value=Num1;
             event.preventDefault(); 
         }else if(document.getElementById("textBoxId").value==0 && document.getElementById("textBoxId").value!='.'){
             document.getElementById("textBoxId").value=n;
@@ -43,6 +47,22 @@
         }
 
     }
+    function additionCalc(){
+
+        Num1 = document.getElementById("textBoxId").value; 
+        document.getElementById("textBoxId").value='';
+        Num2 = document.getElementById("textBoxId").value;
+        Opr=1;
+    }
+    function equals(){
+        if(Opr==1){
+            result=Num1+Num2;
+            document.getElementById("textBoxId").value=result;
+        }
+    }
+
+var btn = document.getElementById("textBoxId");
+btn.addEventListener("click",additionCalc());
 </script>
 <style>
     .calcMainDiv{
